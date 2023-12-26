@@ -1,0 +1,98 @@
+...
+
+# includes
+template: !include templates.yaml
+mqtt: !include mqtt.yaml
+
+# influx db definitions
+influxdb:
+  host: localhost
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: homeassistant
+  max_retries: 3
+  default_measurement: state
+  include:
+    domains:
+      - sensor
+    entity_globs:
+      - sensor.*
+
+# utility meter definitions
+utility_meter:
+  # PV Inverter Energy Generation
+  pv_inverter_energy_generation_daily:
+    name: 'PV Inverter Energy Generation Daily'
+    unique_id: pv_inverter_energy_generation_daily
+    source: sensor.pv_inverter_generation_total
+    cycle: daily
+  
+  pv_inverter_energy_generation_monthly:
+    name: 'PV Inverter Energy Generation Monthly'
+    unique_id: pv_inverter_energy_generation_monthly
+    source: sensor.pv_inverter_generation_total
+    cycle: monthly
+  
+  pv_inverter_energy_generation_yearly:
+    name: 'PV Inverter Energy Generation Yearly'
+    unique_id: pv_inverter_energy_generation_yearly
+    source: sensor.pv_inverter_generation_total
+    cycle: yearly
+  
+  pv_inverter_energy_generation_total:
+    name: 'PV Inverter Energy Generation Total'
+    unique_id: pv_inverter_energy_generation_total
+    source: sensor.pv_inverter_generation_total
+  
+  # House PV Inverter Energy Consumption
+  house_pv_inverter_energy_consumption_daily:
+    name: 'House PV Inverter Energy Consumption Daily'
+    unique_id: house_pv_inverter_energy_consumption_daily
+    source: sensor.house_pv_energy_consumption_total
+    cycle: daily
+  
+  house_pv_inverter_energy_consumption_monthly:
+    name: 'House PV Inverter Energy Consumption Monthly'
+    unique_id: house_pv_inverter_energy_consumption_monthly
+    source: sensor.house_pv_energy_consumption_total
+    cycle: monthly
+  
+  house_pv_inverter_energy_consumption_yearly:
+    name: 'House PV Inverter Energy Consumption Yearly'
+    unique_id: house_pv_inverter_energy_consumption_yearly
+    source: sensor.house_pv_energy_consumption_total
+    cycle: yearly
+  
+  house_pv_inverter_energy_consumption_total:
+    name: 'House PV Inverter Energy Consumption Total'
+    unique_id: house_pv_inverter_energy_consumption_total
+    source: sensor.house_pv_energy_consumption_total
+    
+  # House Complete Energy Consumption
+  house_complete_energy_consumption_daily:
+    name: 'House Complete Energy Consumption Daily'
+    unique_id: house_complete_energy_consumption_daily
+    source: sensor.house_energy_consumption_total
+    cycle: daily
+  
+  house_complete_energy_consumption_monthly:
+    name: 'House Complete Energy Consumption Monthly'
+    unique_id: house_complete_energy_consumption_monthly
+    source: sensor.house_energy_consumption_total
+    cycle: monthly
+  
+  house_complete_energy_consumption_yearly:
+    name: 'House Complete Energy Consumption Yearly'
+    unique_id: house_complete_energy_consumption_yearly
+    source: sensor.house_energy_consumption_total
+    cycle: yearly
+  
+  house_complete_energy_consumption_total:
+    name: 'House Complete Energy Consumption Total'
+    unique_id: house_complete_energy_consumption_total
+    source: sensor.house_energy_consumption_total
+  
+...
+  
+#EOF

@@ -1,0 +1,258 @@
+...
+
+- sensor:
+  ...
+  
+  # PV Inverter Total Energy Generation (persistent)
+  - name: 'PV Inverter Total Energy Generation Daily'
+    unique_id: pv_inverter_total_energy_generation_daily
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.pv_inverter_energy_generation_daily') | float | round(2))
+      }}
+  
+  - name: 'PV Inverter Total Energy Generation Monthly'
+    unique_id: pv_inverter_total_energy_generation_monthly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.pv_inverter_energy_generation_monthly') | float | round(2))
+      }}
+  
+  - name: 'PV Inverter Total Energy Generation Yearly'
+    unique_id: pv_inverter_total_energy_generation_yearly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.pv_inverter_energy_generation_yearly') | float | round(2))
+      }}
+  
+  - name: 'PV Inverter Total Energy Generation'
+    unique_id: pv_inverter_total_energy_generation
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.pv_inverter_energy_generation_total') | float | round(2))
+      }}
+  
+  # House PV Energy Consumption (persistent)
+  - name: 'House PV Energy Consumption Daily'
+    unique_id: house_pv_energy_consumption_daily
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_pv_inverter_energy_consumption_daily') | float | round(2))
+      }}
+  
+  - name: 'House PV Energy Consumption Monthly'
+    unique_id: house_pv_energy_consumption_monthly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_pv_inverter_energy_consumption_monthly') | float | round(2))
+      }}
+  
+  - name: 'House PV Energy Consumption Yearly'
+    unique_id: house_pv_energy_consumption_yearly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_pv_inverter_energy_consumption_yearly') | float | round(2))
+      }}
+  
+  - name: 'House PV Energy Consumption'
+    unique_id: house_pv_energy_consumption
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_pv_inverter_energy_consumption_total') | float | round(2))
+      }}
+
+  # House Grid Energy Consumption (persistent)
+  - name: 'House Grid Energy Consumption Daily'
+    unique_id: house_grid_energy_consumption_daily
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_external_grid_energy_consumption_daily') | float | round(2))
+      }}
+  
+  - name: 'House Grid Energy Consumption Monthly'
+    unique_id: house_grid_energy_consumption_monthly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_external_grid_energy_consumption_monthly') | float | round(2))
+      }}
+  
+  - name: 'House Grid Energy Consumption Yearly'
+    unique_id: house_grid_energy_consumption_yearly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_external_grid_energy_consumption_yearly') | float | round(2))
+      }}
+  
+  - name: 'House Grid Energy Consumption'
+    unique_id: house_grid_energy_consumption
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_external_grid_energy_consumption_total') | float | round(2))
+      }}
+  
+  # House Energy Consumption (persistent)
+  - name: 'House Energy Consumption Daily'
+    unique_id: house_total_energy_consumption_daily
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_complete_energy_consumption_daily') | float | round(2))
+      }}
+  
+  - name: 'House Energy Consumption Monthly'
+    unique_id: house_total_energy_consumption_monthly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_complete_energy_consumption_monthly') | float | round(2))
+      }}
+  
+  - name: 'House Energy Consumption Yearly'
+    unique_id: house_total_energy_consumption_yearly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_complete_energy_consumption_yearly') | float | round(2))
+      }}
+  
+  - name: 'House Energy Consumption'
+    unique_id: house_total_energy_consumption
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_complete_energy_consumption_total') | float | round(2))
+      }}
+
+  # House Energy Export Grid (persistent)
+  - name: 'House Energy Export Grid Daily'
+    unique_id: house_energy_export_grid_daily
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_energy_export_external_grid_daily') | float | round(2))
+      }}
+  
+  - name: 'House Energy Export Grid Monthly'
+    unique_id: house_energy_export_grid_monthly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_energy_export_external_grid_monthly') | float | round(2))
+      }}
+  
+  - name: 'House Energy Export Grid Yearly'
+    unique_id: house_energy_export_grid_yearly
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_energy_export_external_grid_yearly') | float | round(2))
+      }}
+  
+  - name: 'House Energy Export Grid'
+    unique_id: house_energy_export_grid
+    device_class: energy
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (states('sensor.house_energy_export_external_grid_total') | float | round(2))
+      }}
+  
+  # House Active Power Total
+  - name: 'House Active Power Total'
+    unique_id: house_active_power_total
+    device_class: power
+    unit_of_measurement: 'kW'
+    state: >
+      {% if states('sensor.pv_inverter_active_power_output_total') in ("unavailable", "unknown") %}
+        {{
+          ((states('sensor.smart_meter_dtsu666_active_power') | float) | abs | round(2))
+        }}
+      {% elif (states('sensor.pv_inverter_active_power_output_total') | float) >= (states('sensor.smart_meter_dtsu666_active_power') | float) %}
+        {{
+          (((states('sensor.pv_inverter_active_power_output_total') | float) -
+          (states('sensor.smart_meter_dtsu666_active_power') | float)) | round(2))
+        }}
+      {% else %}
+        {{
+          (((states('sensor.smart_meter_dtsu666_active_power') | float) -
+          (states('sensor.pv_inverter_active_power_output_total') | float)) | round(2))
+        }}
+      {% endif %}
+  
+  # House PV Energy Consumption Total
+  - name: 'House PV Energy Consumption Total'
+    unique_id: house_pv_energy_consumption_total
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (((states('sensor.pv_inverter_generation_total') | float) -
+        (states('sensor.smart_meter_dtsu666_import_energy_total') | float)) | round(2))
+      }}
+  
+  # House Energy Consumption Total
+  - name: 'House Energy Consumption Total'
+    unique_id: house_energy_consumption_total
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state: >
+      {{
+        (((states('sensor.pv_inverter_generation_total') | float) -
+        (states('sensor.smart_meter_dtsu666_import_energy_total') | float) +
+        (states('sensor.smart_meter_dtsu666_export_energy_total') | float)) | round(2))
+      }}
+  
+...
+
+#EOF

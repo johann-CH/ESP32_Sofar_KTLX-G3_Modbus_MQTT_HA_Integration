@@ -1,0 +1,325 @@
+sensor:
+  ...
+
+  # PV Converter States
+  - name: 'PV Converter Modbus Errors 0xE0'
+    unique_id: pv_converter_modbus_errors_0xe0
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_Modbus_Errors_0xE0'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_Modbus_Errors_0xE0 }}'
+    
+  - name: 'PV Converter Modbus Errors 0xE1'
+    unique_id: pv_converter_modbus_errors_0xe1
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_Modbus_Errors_0xE1'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_Modbus_Errors_0xE1 }}'
+    
+  - name: 'PV Converter Modbus Errors 0xE2'
+    unique_id: pv_converter_modbus_errors_0xe2
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_Modbus_Errors_0xE2'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_Modbus_Errors_0xE2 }}'
+    
+  - name: 'PV Converter Modbus Errors 0xE3'
+    unique_id: pv_converter_modbus_errors_0xe3
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_Modbus_Errors_0xE3'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_Modbus_Errors_0xE3 }}'
+    
+  - name: 'PV Converter MQTT Keep Alive'
+    unique_id: pv_converter_mqtt_keep_alive
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_MQTT_Keep_Alive'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_MQTT_Keep_Alive }}'
+    
+  - name: 'PV Converter MQTT Keep Alive Received'
+    unique_id: pv_converter_mqtt_keep_alive_received
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_MQTT_Keep_Alive_Received'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_MQTT_Keep_Alive_Received }}'
+    
+  - name: 'PV Converter MQTT Keep Alive Delayed'
+    unique_id: pv_converter_mqtt_keep_alive_delayed
+    state_topic: 'PVConverter/Inverter_Modbus_Converter_MQTT_Keep_Alive_Delayed'
+    icon: 'mdi:counter'
+    value_template: '{{ value_json.Inverter_Modbus_Converter_MQTT_Keep_Alive_Delayed }}'
+    
+  # PV Inverter System Time
+  - name: 'PV Inverter System Time'
+    unique_id: pv_inverter_system_time
+    state_topic: 'PVInverter/System_Time'
+    icon: 'mdi:calendar-clock'
+    value_template: '{{ value_json.System_Time }}'
+    
+  # PV Inverter SysInfo1
+  - name: 'PV Inverter System State ID'
+    unique_id: pv_inverter_system_state_id
+    state_topic: 'PVInverter/SysState'
+    icon: 'mdi:solar-power'
+    state_class: measurement
+    force_update: true
+    value_template: '{{ value_json.SysState }}'
+    
+  - name: 'PV Inverter System State'
+    unique_id: pv_inverter_system_state
+    state_topic: 'PVInverter/SysState'
+    icon: 'mdi:solar-power'
+    value_template: >-
+      {% if value_json.SysState == '0' %}
+        {{ 'Standby' }}
+      {% elif value_json.SysState == '1' %}
+        {{ 'Self-Checking' }}
+      {% elif value_json.SysState == '2' %}
+        {{ 'Normal' }}
+      {% elif value_json.SysState == '3' %}
+        {{ 'Battery activated' }}
+      {% elif value_json.SysState == '4' %}
+        {{ 'Fault' }}
+      {% elif value_json.SysState == '5' %}
+        {{ 'Permanent Fault' }}
+      {% elif value_json.SysState == '6' %}
+        {{ 'Offline' }}
+      {% else %}
+        {{ 'N/A' }}
+      {% endif %}
+    
+  - name: 'PV Inverter Temperature Env1'
+    unique_id: pv_inverter_temperature_env1
+    state_topic: 'PVInverter/Temperature_Env1'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    state_class: measurement
+    value_template: '{{ value_json.Temperature_Env1 }}'
+    
+  - name: 'PV Inverter Temperature Heatsink1'
+    unique_id: pv_inverter_temperature_heatsink1
+    state_topic: 'PVInverter/Temperature_Heatsink1'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    state_class: measurement
+    value_template: '{{ value_json.Temperature_Heatsink1 }}'
+    
+  - name: 'PV Inverter Temperature Inv1'
+    unique_id: pv_inverter_temperature_inv1
+    state_topic: 'PVInverter/Temperature_Inv1'
+    device_class: temperature
+    unit_of_measurement: '°C'
+    state_class: measurement
+    value_template: '{{ value_json.Temperature_Inv1 }}'
+    
+  - name: 'PV Inverter Generation Time Today'
+    unique_id: pv_inverter_generation_time_today
+    state_topic: 'PVInverter/Generation_Time_Today'
+    device_class: duration
+    unit_of_measurement: 'h'
+    state_class: measurement
+    value_template: '{{ value_json.Generation_Time_Today }}'
+    
+  - name: 'PV Inverter Generation Time Total'
+    unique_id: pv_inverter_generation_time_total
+    state_topic: 'PVInverter/Generation_Time_Total'
+    device_class: duration
+    unit_of_measurement: 'h'
+    state_class: measurement
+    value_template: '{{ value_json.Generation_Time_Total }}'
+    
+  - name: 'PV Inverter ServiceTime Total'
+    unique_id: pv_inverter_servicetime_total
+    state_topic: 'PVInverter/ServiceTime_Total'
+    device_class: duration
+    unit_of_measurement: 'h'
+    state_class: measurement
+    value_template: '{{ value_json.ServiceTime_Total }}'
+    
+  # PV Inverter SysGridOutput1
+  - name: 'PV Inverter Frequency Grid'
+    unique_id: pv_inverter_frequency_grid
+    state_topic: 'PVInverter/Frequency_Grid'
+    device_class: frequency
+    unit_of_measurement: 'Hz'
+    state_class: measurement
+    value_template: '{{ value_json.Frequency_Grid }}'
+    
+  - name: 'PV Inverter Active Power Output Total'
+    unique_id: pv_inverter_active_power_output_total
+    state_topic: 'PVInverter/Active_Power_Output_Total'
+    device_class: power
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    force_update: true
+    value_template: '{{ value_json.Active_Power_Output_Total }}'
+    
+  - name: 'PV Inverter Reactive Power Output Total'
+    unique_id: pv_inverter_reactive_power_output_total
+    state_topic: 'PVInverter/Reactive_Power_Output_Total'
+    device_class: power
+    unit_of_measurement: 'kvar'
+    state_class: measurement
+    value_template: '{{ value_json.Reactive_Power_Output_Total }}'
+    
+  - name: 'PV Inverter Apparent Power Output Total'
+    unique_id: pv_inverter_apparent_power_output_total
+    state_topic: 'PVInverter/Apparent_Power_Output_Total'
+    device_class: power
+    unit_of_measurement: 'kVA'
+    state_class: measurement
+    value_template: '{{ value_json.Apparent_Power_Output_Total }}'
+    
+  - name: 'PV Inverter Active Power PCC Total'
+    unique_id: pv_inverter_active_power_pcc_total
+    state_topic: 'PVInverter/Active_Power_PCC_Total'
+    device_class: power
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    value_template: '{{ value_json.Active_Power_PCC_Total }}'
+    
+  - name: 'PV Inverter Reactive Power PCC Total'
+    unique_id: pv_inverter_reactive_power_pcc_total
+    state_topic: 'PVInverter/Reactive_Power_PCC_Total'
+    device_class: power
+    unit_of_measurement: 'kvar'
+    state_class: measurement
+    value_template: '{{ value_json.Reactive_Power_PCC_Total }}'
+    
+  - name: 'PV Inverter Apparent Power PCC Total'
+    unique_id: pv_inverter_apparent_power_pcc_total
+    state_topic: 'PVInverter/Apparent_Power_PCC_Total'
+    device_class: power
+    unit_of_measurement: 'kVA'
+    state_class: measurement
+    value_template: '{{ value_json.Apparent_Power_PCC_Total }}'
+    
+  - name: 'PV Inverter Power Factor'
+    unique_id: pv_inverter_power_factor
+    device_class: power_factor
+    state_topic: 'PVInverter/Power_Factor'
+    value_template: '{{ value_json.Power_Factor }}'
+    
+  # PV Inverter InputPV1
+  - name: 'PV Inverter Voltage PV1'
+    unique_id: pv_inverter_voltage_pv1
+    state_topic: 'PVInverter/Voltage_PV1'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    state_class: measurement
+    value_template: '{{ value_json.Voltage_PV1 }}'
+    
+  - name: 'PV Inverter Current PV1'
+    unique_id: pv_inverter_current_pv1
+    state_topic: 'PVInverter/Current_PV1'
+    device_class: current
+    unit_of_measurement: 'A'
+    state_class: measurement
+    value_template: '{{ value_json.Current_PV1 }}'
+    
+  - name: 'PV Inverter Power PV1'
+    unique_id: pv_inverter_power_pv1
+    state_topic: 'PVInverter/Power_PV1'
+    device_class: power
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    value_template: '{{ value_json.Power_PV1 }}'
+    
+  # PV Inverter InputPV2
+  - name: 'PV Inverter Voltage PV2'
+    unique_id: pv_inverter_voltage_pv2
+    state_topic: 'PVInverter/Voltage_PV2'
+    device_class: voltage
+    unit_of_measurement: 'V'
+    state_class: measurement
+    value_template: '{{ value_json.Voltage_PV2 }}'
+    
+  - name: 'PV Inverter Current PV2'
+    unique_id: pv_inverter_current_pv2
+    state_topic: 'PVInverter/Current_PV2'
+    device_class: current
+    unit_of_measurement: 'A'
+    state_class: measurement
+    value_template: '{{ value_json.Current_PV2 }}'
+    
+  - name: 'PV Inverter Power PV2'
+    unique_id: pv_inverter_power_pv2
+    state_topic: 'PVInverter/Power_PV2'
+    device_class: power
+    unit_of_measurement: 'kW'
+    state_class: measurement
+    value_template: '{{ value_json.Power_PV2 }}'
+    
+  # PV Inverter ElectricityStatistics1
+  - name: 'PV Inverter Generation Today'
+    unique_id: pv_inverter_generation_today
+    state_topic: 'PVInverter/PV_Generation_Today'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.PV_Generation_Today }}'
+    
+  - name: 'PV Inverter Generation Total'
+    unique_id: pv_inverter_generation_total
+    state_topic: 'PVInverter/PV_Generation_Total'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.PV_Generation_Total }}'
+    
+  - name: 'PV Inverter Load Consumption Today'
+    unique_id: pv_inverter_load_consumption_today
+    state_topic: 'PVInverter/Load_Consumption_Today'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Load_Consumption_Today }}'
+    
+  - name: 'PV Inverter Load Consumption Total'
+    unique_id: pv_inverter_load_consumption_total
+    state_topic: 'PVInverter/Load_Consumption_Total'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Load_Consumption_Total }}'
+    
+  - name: 'PV Inverter Energy Purchased Today'
+    unique_id: pv_inverter_energy_purchased_today
+    state_topic: 'PVInverter/Energy_Purchased_Today'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Energy_Purchased_Today }}'
+    
+  - name: 'PV Inverter Energy Purchased Total'
+    unique_id: pv_inverter_energy_purchased_total
+    state_topic: 'PVInverter/Energy_Purchased_Total'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Energy_Purchased_Total }}'
+    
+  - name: 'PV Inverter Energy Sold Today'
+    unique_id: pv_inverter_energy_sold_today
+    state_topic: 'PVInverter/Energy_Sold_Today'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Energy_Sold_Today }}'
+    
+  - name: 'PV Inverter Energy Sold Total'
+    unique_id: pv_inverter_energy_sold_total
+    state_topic: 'PVInverter/Energy_Sold_Total'
+    device_class: energy
+    unit_of_measurement: 'kWh'
+    state_class: measurement
+    icon: 'mdi:lightning-bolt-outline'
+    value_template: '{{ value_json.Energy_Sold_Total }}'
+    
+  # PV Inverter UnbalancedSupportControl
+  
+  ...
+
+#EOF

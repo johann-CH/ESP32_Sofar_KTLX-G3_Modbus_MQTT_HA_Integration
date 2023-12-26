@@ -1,0 +1,38 @@
+Einführung
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Anforderungen
+
+Hardware Vorussetzungen:
+- ESP32 board with WiFi
+- RS485 Converter
+- Modbus Verbindung RS485 Converter/Sofar Solar KTLX-G3
+
+Software Vorussetzungen:
+- Arduino IDE
+- Libraries
+  - <AsyncTCP.h>
+  - <ESPAsyncWebServer.h>
+  - <WebSerial.h> or licensed <WebSerialPro.h>
+  - <ModbusMaster.h>
+  - <MQTT.h>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Kommunikation Sofar Solar KTLX-G3
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Code
+
+Custom definitions in ESP32_Sofar_KTLX-G3_Modbus_MQTT.ino:
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Home Assistant
+
+Für die Integration in den Home Assistant müsse die Definitionen in den folgeden Files in die entsprechenden
+Home Assistant Konfigurations Files intergriert werden:
+ - configuration_pv-inveter.aml
+ - mqtt_pv-inveter.yaml
+ - templates_pv-inveter.yaml
