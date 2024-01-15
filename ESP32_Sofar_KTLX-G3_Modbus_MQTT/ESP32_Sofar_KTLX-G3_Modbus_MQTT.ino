@@ -762,7 +762,7 @@ void loop() {
         inverterTimeMinute = String(msgString);
         sprintf(msgString, "%02u", inverterTimeArray[5]);
         inverterTimeSecond = String(msgString);
-        inverterTime = String(inverterTimeYear + "-" + inverterTimeMonth + "-" + inverterTimeDay + " " + inverterTimeHour + ":" + inverterTimeMinute + ":" + inverterTimeSecond).c_str();
+        inverterTime = String(inverterTimeYear + "-" + inverterTimeMonth + "-" + inverterTimeDay + " / " + inverterTimeHour + ":" + inverterTimeMinute + ":" + inverterTimeSecond).c_str();
         mqttPayload = ("{\"" + String(mqttTopicEntity) + "\":\"" + String(inverterTime) + "\"}").c_str();
         mqttSuccess = mqttClient.publish(mqttTopic, mqttPayload, mqttRetained, mqttQoS);
       
