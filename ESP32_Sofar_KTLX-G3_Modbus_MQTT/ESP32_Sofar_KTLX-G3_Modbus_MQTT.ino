@@ -1,5 +1,5 @@
 /*
-  ESP32 + RS485 Converter: PV Inverter Prod Home Assistant Integration (RS485(Modbus)/MQTT)
+  ESP32 + RS485 Converter: PV Inverter Prod Home Assistant Integration (RS485/Modbus/MQTT)
 */
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -147,6 +147,7 @@ unsigned long mqttKeepAliveDelayedCounter = 0;
 // common definitions
 char msgString[256];  // message char array
 
+bool esp32Halt = 0;
 bool connectionsEstablished = 0;
 
 String inverterRegisterBlockName;
@@ -668,7 +669,7 @@ void loop() {
       LEDFlashChrono.restart();
     }
   #endif
-
+  
   // handle MQTT loop
   mqttClient.loop();
   delay(MQTT_LOOP_DELAY);
